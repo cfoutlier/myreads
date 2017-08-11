@@ -4,11 +4,15 @@ import React, {Component} from 'react'
 
 class ListBooks extends React.Component{
 
-  updateShelf = (value, bookShelf) => {
+  state : {
+    test: 'hello'
+  }
 
-    console.log("target value: " + value)
-    this.setState({bookShelf : value})
-    console.log("bookShelf value after setState: " + bookShelf)
+  updateShelf = (value, book) => {
+
+    console.log("selected target value: " + value)
+    this.setState({bookShelf: value})
+    console.log("bookShelf value after setState: " + book.bookShelf)
   }
 
   render(){
@@ -25,7 +29,7 @@ class ListBooks extends React.Component{
                     <div className="book-top">
                       <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.bookURL})` }}></div>
                       <div className="book-shelf-changer">
-                        <select onChange={(event) => this.updateShelf(event.target.value, book.bookShelf)}>
+                        <select onChange={(event) => this.updateShelf(event.target.value, book)}>
                           <option value="none" disabled>Move to...</option>
                           <option value="currentlyReading">Currently Reading</option>
                           <option value="wantToRead">Want to Read</option>
