@@ -7,13 +7,13 @@ class ListBooks extends React.Component{
   state : {
     test: 'hello'
   }
-
+/*
   updateShelf = (value, book) => {
 
     console.log("selected target value: " + value)
     this.setState({bookShelf: value})
     console.log("bookShelf value after setState: " + book.bookShelf)
-  }
+  }*/
 
   render(){
     console.log('Props', this.props)
@@ -29,7 +29,7 @@ class ListBooks extends React.Component{
                     <div className="book-top">
                       <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.bookURL})` }}></div>
                       <div className="book-shelf-changer">
-                        <select onChange={(event) => this.updateShelf(event.target.value, book)}>
+                        <select value={book.bookShelf} onChange={(event) => this.props.upDateShelf(event.target.value, book)}>
                           <option value="none" disabled>Move to...</option>
                           <option value="currentlyReading">Currently Reading</option>
                           <option value="wantToRead">Want to Read</option>
@@ -56,7 +56,7 @@ class ListBooks extends React.Component{
                     <div className="book-top">
                       <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.bookURL})` }}></div>
                       <div className="book-shelf-changer">
-                        <select>
+                        <select value={book.bookShelf} onChange={(event) => this.props.upDateShelf(event.target.value, book)}>
                           <option value="none" disabled>Move to...</option>
                           <option value="currentlyReading">Currently Reading</option>
                           <option value="wantToRead">Want to Read</option>
@@ -83,7 +83,7 @@ class ListBooks extends React.Component{
                     <div className="book-top">
                       <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.bookURL})` }}></div>
                       <div className="book-shelf-changer">
-                        <select>
+                        <select value={book.bookShelf} onChange={(event) => this.props.upDateShelf(event.target.value, book)}>
                           <option value="none" disabled>Move to...</option>
                           <option value="currentlyReading">Currently Reading</option>
                           <option value="wantToRead">Want to Read</option>

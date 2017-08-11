@@ -9,6 +9,16 @@ import ListBooks from './ListBooks.js'
 class BooksApp extends React.Component {
 
 
+  upDateShelf = (value, book) => {
+    book.bookShelf = value
+    console.log("selected target value: " + value)
+
+    this.setState(state => ({
+      books: state.books.filter(b => b.id !== book.id).concat([book])
+    }))
+    console.log("bookShelf value after setState: " + book.bookShelf)
+  }
+
   state = {
     /**
      * TODO: Instead of using this state variable to keep track of which page
@@ -101,7 +111,7 @@ class BooksApp extends React.Component {
               <h1>MyReads</h1>
             </div>
             <div className="list-books-content">
-            <ListBooks books={this.state.books}/>
+            <ListBooks books={this.state.books} upDateShelf={this.upDateShelf}/>
             </div>
             <div className="open-search">
               <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
