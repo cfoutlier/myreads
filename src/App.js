@@ -2,6 +2,7 @@ import React from 'react'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 import ListBooks from './ListBooks.js'
+import SearchBooks from './SearchBooks.js'
 import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
 
@@ -99,7 +100,7 @@ class BooksApp extends React.Component {
 
     if(this.state.query){
       const match = new RegExp(escapeRegExp(this.state.query), 'i')
-      showingBooks = this.state.books.filter((book) => match.test(book.title))
+      showingBooks = this.state.books.filter((book) => match.test(book.title) || match.test(book.authors))
     }else{
       showingBooks = this.state.books
     }
@@ -125,7 +126,11 @@ class BooksApp extends React.Component {
               </div>
             </div>
             <div className="search-books-results">
-              <ol className="books-grid"></ol>
+              <ol className="books-grid">
+
+                <SearchBooks books={this.state.books} upDateShelf={this.upDateShelf} showingBooks={showingBooks}/>
+
+              </ol>
             </div>
           </div>
         ) : (
