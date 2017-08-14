@@ -1,19 +1,47 @@
 
 import React, {Component} from 'react'
+import * as BooksAPI from './BooksAPI'
+import escapeRegExp from 'escape-string-regexp'
 
 
 class SearchBooks extends Component{
 
+  state = {
+    books: [],
+    query: " ",
+  }
+
+  componentDidMount(){
+    BooksAPI.search().then((books) => {
+      this.setState({books: books})
+    })
+  }
+
+  updateQuery = (query) => {
+    this.setState({query: query.trim()})
+
+    BooksAPI.search(query,50)
+  }
 
   render(){
     console.log('Props', this.props)
+
+    let showingBooks
+
+    if(this.state.query){
+      const match = new RegExp(escapeRegExp(this.state.query), 'i')
+      showingBooks = this.state.books.filter((book) => match.test(book.title) || match.test(book.authors))
+    }else{
+      showingBooks = this.state.books
+    }
+
     return(
       <div>
-        <div className="bookshelf">
+      {/*  <div className="bookshelf">
           <h2 className="bookshelf-title">Filter Results</h2>
           <div className="bookshelf-books">
             <ol className="books-grid">
-              {this.props.showingBooks.map((book) =>  (
+              {showingBooks.map((book) =>  (
                 <li key={book.id}>
                   <div className="book">
                     <div className="book-top">
@@ -35,7 +63,7 @@ class SearchBooks extends Component{
               ))}
             </ol>
           </div>
-        </div>
+        </div>*/}
       </div>
     )
   }

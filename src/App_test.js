@@ -11,8 +11,7 @@ class BooksApp extends React.Component {
   state = {
     screen: " ",
     books: [],
-    showSearchPage: false,
-    query: " ",
+    /*query: " ",*/
   }
 
   componentDidMount(){
@@ -42,21 +41,10 @@ class BooksApp extends React.Component {
      * pages, as well as provide a good URL they can bookmark and share.
      */
 
-  updateQuery = (query) => {
-    this.setState({query: query.trim()})
 
-    BooksAPI.search(query,50)
-  }
 
   render() {
-    let showingBooks
 
-    if(this.state.query){
-      const match = new RegExp(escapeRegExp(this.state.query), 'i')
-      showingBooks = this.state.books.filter((book) => match.test(book.title) || match.test(book.authors))
-    }else{
-      showingBooks = this.state.books
-    }
 
     return (
       <div className="app">
@@ -82,7 +70,7 @@ class BooksApp extends React.Component {
               <div className="search-books-results">
                 <ol className="books-grid">
 
-                  <SearchBooks books={this.state.books} upDateShelf={this.upDateShelf} showingBooks={showingBooks}/>
+                  <SearchBooks books={this.state.books} upDateShelf={this.upDateShelf} /*showingBooks={showingBooks}*//>
 
                 </ol>
               </div>
