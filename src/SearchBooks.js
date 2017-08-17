@@ -34,12 +34,9 @@ class SearchBooks extends Component{
                     if (searchBook.id === ownedBook.id) {
                         searchBook.shelf = ownedBook.shelf
                         console.log('ownedShelf', ownedBook.shelf)
-                        console.log('searchBook', this.state.shelf)
+                        console.log('searchBook', searchBook.shelf)
                     }
-
-                    return searchBook
                 })
-
                 return searchBook
               }
             })
@@ -100,12 +97,12 @@ class SearchBooks extends Component{
                             {/*had to do a special check for imageLinks.thumbnail here because sometimes the server does not return a thumbnail*/}
                             <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks !== undefined? book.imageLinks.thumbnail:''})`  }}></div>
                             <div className="book-shelf-changer">
-                              <select value={this.state.shelf} onChange={(event) => this.props.upDateShelf(event.target.value, book)}>
+                              <select value={book.shelf} onChange={(event) => this.props.upDateShelf(event.target.value, book)}>
                                 <option value="" disabled>Move to...</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>
                                 <option value="read">Read</option>
-                                <option value="none">None</option>
+                                <option selected="selected" value="none">None</option>
                               </select>
                             </div>
                           </div>
