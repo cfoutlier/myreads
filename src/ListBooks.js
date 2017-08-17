@@ -4,8 +4,6 @@ import React, {Component} from 'react'
 
 class ListBooks extends Component{
 
-
-
   render(){
     console.log('Props', this.props)
     return(
@@ -56,8 +54,8 @@ class ListBooks extends Component{
                         </select>
                       </div>
                     </div>
-                    <div className="book-title">{book.bookTitle}</div>
-                    <div className="book-authors">{book.author}</div>
+                    <div className="book-title">{book.title}</div>
+                    <div className="book-authors">{book.authors}</div>
                   </div>
                 </li>
               ))}
@@ -83,8 +81,8 @@ class ListBooks extends Component{
                         </select>
                       </div>
                     </div>
-                    <div className="book-title">{book.bookTitle}</div>
-                    <div className="book-authors">{book.author}</div>
+                    <div className="book-title">{book.title}</div>
+                    <div className="book-authors">{book.authors}</div>
                   </div>
                 </li>
               ))}
