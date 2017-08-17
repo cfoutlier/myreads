@@ -30,9 +30,9 @@ class SearchBooks extends Component{
         if(searchBooks && !searchBooks.error){
           this.setState({searchResults: searchBooks.map((searchBook) => {
             if(searchBook !== null || 'undefined'){
-                this.props.books.map((ownedBook) => {
+                this.props.books.forEach((ownedBook) => {
                     if (searchBook.id === ownedBook.id) {
-                        this.state.shelf = ownedBook.shelf
+                        searchBook.shelf = ownedBook.shelf
                         console.log('ownedShelf', ownedBook.shelf)
                         console.log('searchBook', this.state.shelf)
                     }
