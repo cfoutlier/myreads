@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react';
-
+import PropTypes from 'prop-types';
 
 class ListBooks extends Component{
 
@@ -92,6 +92,11 @@ class ListBooks extends Component{
       </div>
     )
   }
+}
+
+ListBooks.propTypes = {
+  books: PropTypes.array.isRequired,
+  upDateShelf: PropTypes.func.isRequired,
 }
 
 export default ListBooks;
