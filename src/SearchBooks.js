@@ -1,28 +1,23 @@
 
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
-import escapeRegExp from 'escape-string-regexp'
-import * as BooksAPI from './BooksAPI'
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+import escapeRegExp from 'escape-string-regexp';
+import * as BooksAPI from './BooksAPI';
 
 class SearchBooks extends Component{
   state = {
     query: "",
     searchResults: [],
-    shelf: "none",
-  }
-
-  componentDidMount(){
   }
 
   updateQuery = (query) => {
     if(query !== ' ' || 'undefined'){
       this.setState({
-        query: query.trim(),
+        query: query.trim()
       })
-      this.loadSearch(query)
+      this.loadSearch(query);
     }
   }
-
 
   loadSearch = (query) => {
     if(query !== '' || 'undefined'){
@@ -32,13 +27,11 @@ class SearchBooks extends Component{
             if(searchBook !== null || 'undefined'){
                 this.props.books.forEach((ownedBook) => {
                     if (searchBook.id === ownedBook.id) {
-                        searchBook.shelf = ownedBook.shelf
-                        console.log('ownedShelf', ownedBook.shelf)
-                        console.log('searchBook', searchBook.shelf)
+                        searchBook.shelf = ownedBook.shelf;
                     }
                 })
-                return searchBook
               }
+              return searchBook;
             })
           })
         }
@@ -49,18 +42,16 @@ class SearchBooks extends Component{
 
   render(){
     console.log('Props', this.props)
-    console.log('search', this.state.searchResults)
-    console.log('shelf & id', this.state.shelf)
 
-    let showingBooks
+    let showingBooks;
 
     if(this.state.query){
       const match = new RegExp(escapeRegExp(this.state.query), 'i')
 
-      showingBooks = this.state.searchResults.filter((book) => match.test(book.title) || match.test(book.authors))
+      showingBooks = this.state.searchResults.filter((book) => (match.test(book.title) || match.test(book.authors)))
 
     }else{
-      showingBooks = this.state.searchResults
+      showingBooks = this.state.searchResults;
     }
 
     return(
@@ -123,4 +114,4 @@ class SearchBooks extends Component{
   }
 }
 
-export default SearchBooks
+export default SearchBooks;

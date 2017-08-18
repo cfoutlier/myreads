@@ -1,9 +1,9 @@
-import React from 'react'
-import * as BooksAPI from './BooksAPI'
-import './App.css'
-import ListBooks from './ListBooks.js'
-import SearchBooks from './SearchBooks.js'
-import {Link, Route} from 'react-router-dom'
+import React from 'react';
+import * as BooksAPI from './BooksAPI';
+import './App.css';
+import ListBooks from './ListBooks.js';
+import SearchBooks from './SearchBooks.js';
+import {Link, Route} from 'react-router-dom';
 
 class BooksApp extends React.Component {
   state = {
@@ -25,7 +25,7 @@ class BooksApp extends React.Component {
 
     }))
 
-    BooksAPI.update(book, value)
+    BooksAPI.update(book, value);
 
   }
 
