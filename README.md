@@ -1,6 +1,4 @@
-This is the starter template for the final assessment project for Udacity's React Fundamentals course, developed by [React Training](https://reacttraining.com). The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
-
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
+This is the MyReads app based on the starter template for the final assessment project for Udacity's React Fundamentals course, developed by [React Training](https://reacttraining.com).
 
 ## What You're Getting
 ```
@@ -41,15 +39,22 @@ Required tools to install:
 * Install create-react-app-> "npm install -g create-react-app"
 * Create the app-> "create-react-app myreads"
 * Clone (download) the myreads files from GitHub to your local computer.  https://github.com/cfoutlier/myreads
-* Copy the src files from the cloned folder to the newly created "myreads" app folder.  Replace the original create-react-app files.
+* Copy the files from the cloned folder to the newly created "myreads" app folder, replacing the original create-react-app files.
 * Navigate to the myreads folder via the terminal and type "npm install" to install any dependencies for the app
 * Type "npm start" to run the app
 
-Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
+
+## Usage Instructions
+* Home Page
+  * The home page of the app is a listing of books that a user can categorize as currently reading, want to read, or have already read.  To move the book to a new category or shelf, simply click the drop down on the bottom right hand corner of the the shelf and select the new shelf.  A user has the ability to add new books to the list by using the search function.
+* Search page
+  * Select the plus button on the bottom right hand side of the home page to access the search page.
+  * On the search page the user can start typing the title of the book they would like to add to the book list and the page will dynamically populate with results.
+  * To add the book to the book list select the drop down on the bottom right of each book and choose a category.
 
 ## Backend Server
 
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
+The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
 
 ### `getAll()`
 * Returns a Promise which resolves to a JSON object containing a collection of book objects.
