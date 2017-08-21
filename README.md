@@ -16,6 +16,8 @@ Of course, you are free to start this project from scratch if you wish! Just be 
  |-- App.css - Styles for your app. Feel free to customize this as you desire.
  |-- App.test.js - Used for testing. Provided with Create React App.
  Testing is encouraged, but not required.
+ |--ListBooks.js - the component file that list the books that are currently in the library.
+ |--searchBook.js - the component file that allows for a user to search for books currently and not currently in the library and add them to the library.
  |-- BooksAPI.js - A JavaScript API for the provided Udacity backend.
  Instructions for the methods are below.
  |-- index.js - You should not need to modify this file. It is used for DOM rendering only.
@@ -30,11 +32,16 @@ for you to use with your app.
 ```
 
 ## Installation
-Required installations:
+Required tools to install:
 - npm
-- PropTypes
-- escape-string-regexp
-- react-router-dom
+- create-react-app
+
+* Install NPM on your local computer.  https://www.npmjs.com NPM will allow you to install packages and run your project
+* You may also use yarn as a package manger. https://yarnpkg.com/en/ Yarn will allow you to install packages and run your project
+* Install create-react-app-> "npm install -g create-react-app"
+* Create the app-> "create-react-app myreads"
+* Clone the myReads files from GitHub to your local computer
+* Copy App.js, ListBooks.js, and SearchBooks.js from the cloned folder to the app folder.
 
 Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
 

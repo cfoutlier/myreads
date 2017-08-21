@@ -9,12 +9,13 @@ class SearchBooks extends Component{
   state = {
     query: "",
     searchResults: [],
+    optionState: " ",
   }
 
   updateQuery = (query) => {
     if(query !== ' ' || 'undefined'){
       this.setState({
-        query: query.trim()
+        query: query
       })
       this.loadSearch(query);
     }
@@ -35,6 +36,7 @@ class SearchBooks extends Component{
               return searchBook;
             })
           })
+          console.log('searchResults', this.state.searchResults)
         }
       })
     }
@@ -90,11 +92,10 @@ class SearchBooks extends Component{
                             <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks !== undefined? book.imageLinks.thumbnail:''})`  }}></div>
                             <div className="book-shelf-changer">
                               <select value={book.shelf} onChange={(event) => this.props.upDateShelf(event.target.value, book)}>
-                                <option value="" disabled>Move to...</option>
+                                <option value="none">None</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>
                                 <option value="read">Read</option>
-                                <option selected="selected" value="none">None</option>
                               </select>
                             </div>
                           </div>
