@@ -1,4 +1,4 @@
-This is the MyReads app based on the starter template for the final assessment project for Udacity's React Fundamentals course, developed by [React Training](https://reacttraining.com).
+This is the MyReads app based on the starter template for the final assessment project for Udacity's React Fundamentals course, developed by [React Training](https://reacttraining.com).  The app is meant to help the user keep track of the books they are currently reading, want to read, or have already read.
 
 ## What You're Getting
 ```
