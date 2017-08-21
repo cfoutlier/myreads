@@ -31,17 +31,19 @@ for you to use with your app.
 |-- package.json - npm package manager file. It's unlikely that you'll need to modify this.
 ```
 
-## Installation
+## Installation Instructions
 Required tools to install:
-- npm
+- npm (or yarn)
 - create-react-app
 
 * Install NPM on your local computer.  https://www.npmjs.com NPM will allow you to install packages and run your project
-* You may also use yarn as a package manger. https://yarnpkg.com/en/ Yarn will allow you to install packages and run your project
+* You may also use yarn package manger. https://yarnpkg.com/en/ Yarn will allow you to install packages and run your project
 * Install create-react-app-> "npm install -g create-react-app"
 * Create the app-> "create-react-app myreads"
-* Clone the myReads files from GitHub to your local computer
-* Copy App.js, ListBooks.js, and SearchBooks.js from the cloned folder to the app folder.
+* Clone (download) the myreads files from GitHub to your local computer.  https://github.com/cfoutlier/myreads
+* Copy the src files from the cloned folder to the newly created "myreads" app folder.  Replace the original create-react-app files.
+* Navigate to the myreads folder via the terminal and type "npm install" to install any dependencies for the app
+* Type "npm start" to run the app
 
 Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
 
